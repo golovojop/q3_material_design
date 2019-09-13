@@ -8,11 +8,15 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.view.MenuItem
 import android.support.v4.widget.DrawerLayout
 import android.support.design.widget.NavigationView
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
+import android.view.View
+import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -28,14 +32,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+
         val toggle = ActionBarDrawerToggle(
-            this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+            this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
-        drawerLayout.addDrawerListener(toggle)
+        drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+        // Сменить фон заголовка в выдвигающейся шторке
+        val header = nav_view.getHeaderView(0)
+        header.findViewById<LinearLayout>(R.id.ll_nav_header)?.let {
+            setNavHeaderBackground(it)
+        }
     }
 
     override fun onBackPressed() {
@@ -66,19 +76,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_home -> {
+            R.id.nav_theme_dob -> {
                 lastTheme = R.style.AppThemeDob
                 recreate()
             }
-            R.id.nav_gallery -> {
+            R.id.nav_theme_ic -> {
                 lastTheme = R.style.AppThemeIc
                 recreate()
             }
-            R.id.nav_slideshow -> {
+            R.id.nav_theme_pg -> {
                 lastTheme = R.style.AppThemePg
                 recreate()
             }
-            R.id.nav_tools -> {
+            R.id.nav_theme_default -> {
                 lastTheme = R.style.AppTheme
                 recreate()
             }
@@ -94,7 +104,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
+    private fun setNavHeaderBackground(header: View) {
+
+        val bgId = when (lastTheme) {
+            R.style.AppThemeDob -> R.drawable.side_nav_bar_dob
+            R.style.AppThemeIc -> R.drawable.side_nav_bar_ic
+            R.style.AppThemePg -> R.drawable.side_nav_bar_pg
+            else -> R.drawable.side_nav_bar
+        }
+
+        header.background = ContextCompat.getDrawable(this, bgId)
+    }
+
     companion object {
-        private var lastTheme : Int = R.style.AppTheme
+        private var lastTheme: Int = R.style.AppTheme
     }
 }
+
+
