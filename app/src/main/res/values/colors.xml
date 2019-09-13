@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!-- DeepOrange-Brown -->
+    <color name="colorPrimary_dob">#FF5722</color>
+    <color name="colorPrimaryDark_dob">#E64A19</color>
+    <color name="colorAccent_dob">#795548</color>
+
+    <!-- Indigo-Cyan -->
+    <color name="colorPrimary_ic">#00BCD4</color>
+    <color name="colorPrimaryDark_ic">#0097A7</color>
+    <color name="colorAccent_ic">#795548</color>
+
+    <!-- Pink-Gray -->
+    <color name="colorPrimary_pg">#9E9E9E</color>
+    <color name="colorPrimaryDark_pg">#616161</color>
+    <color name="colorAccent_pg">#FF4081</color>
+</resources>
