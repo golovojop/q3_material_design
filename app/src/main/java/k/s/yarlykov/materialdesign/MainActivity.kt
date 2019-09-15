@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    // Настройка фона для заголовка элемента в nav_header_main
+    // Настройка фона для элемента заголовка в nav_header_main
     private fun setNavHeaderBackground(header: View) {
         val bgId = when (lastTheme) {
             R.style.AppThemeDob -> R.drawable.side_nav_bar_dob
