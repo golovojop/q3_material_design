@@ -1,17 +1,19 @@
 package k.s.yarlykov.materialdesign
 
 import android.os.Bundle
-import android.support.design.widget.NavigationView
-import android.support.design.widget.Snackbar
-import android.support.v4.content.ContextCompat
-import android.support.v4.view.GravityCompat
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
+import k.s.yarlykov.materialdesign.extentions.create
+import k.s.yarlykov.materialdesign.ui.lesson1.LessonOneActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
@@ -89,8 +91,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 lastTheme = R.style.AppTheme
                 recreate()
             }
-            R.id.nav_launch -> {
-                LessonOneActivity.start(this)
+            R.id.nav_start_l1 -> {
+                this.create(LessonOneActivity::class.java)
+//                LessonOneActivity.start(this)
             }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
