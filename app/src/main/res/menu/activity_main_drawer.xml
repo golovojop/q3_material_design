@@ -25,10 +25,17 @@
     <item android:title="@string/menu_category_nav">
         <menu>
             <item
-                    android:id="@+id/nav_launch"
+                    android:id="@+id/nav_start_l1"
                     android:icon="@drawable/ic_menu_launch"
-                    android:title="@string/menu_start_activity"/>
+                    android:title="@string/menu_start_activity_l1"/>
+            <item
+                    android:id="@+id/nav_start_l2_1"
+                    android:icon="@drawable/ic_menu_launch"
+                    android:title="@string/menu_start_activity_l2_1"/>
+            <item
+                    android:id="@+id/nav_start_l2_2"
+                    android:icon="@drawable/ic_menu_launch"
+                    android:title="@string/menu_start_activity_l2_2"/>
         </menu>
     </item>
-
 </menu>

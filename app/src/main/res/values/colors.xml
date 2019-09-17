@@ -3,19 +3,27 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorSecondary">#D81B60</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
 
     <!-- DeepOrange-Brown -->
     <color name="colorPrimary_dob">#FF5722</color>
     <color name="colorPrimaryDark_dob">#E64A19</color>
     <color name="colorAccent_dob">#795548</color>
+    <color name="colorSecondary_dob">#795548</color>
+    <color name="colorOnSecondary_dob">#FFFFFF</color>
 
     <!-- Indigo-Cyan -->
     <color name="colorPrimary_ic">#00BCD4</color>
     <color name="colorPrimaryDark_ic">#0097A7</color>
     <color name="colorAccent_ic">#795548</color>
+    <color name="colorSecondary_ic">#795548</color>
+    <color name="colorOnSecondary_ic">#FFFFFF</color>
 
     <!-- Pink-Gray -->
     <color name="colorPrimary_pg">#9E9E9E</color>
     <color name="colorPrimaryDark_pg">#616161</color>
     <color name="colorAccent_pg">#FF4081</color>
+    <color name="colorSecondary_pg">#FF4081</color>
+    <color name="colorOnSecondary_pg">#FFFFFF</color>
 </resources>

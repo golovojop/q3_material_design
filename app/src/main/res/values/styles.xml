@@ -1,11 +1,14 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+
     </style>
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -19,6 +22,8 @@
         <item name="colorPrimary">@color/colorPrimary_dob</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark_dob</item>
         <item name="colorAccent">@color/colorAccent_dob</item>
+        <item name="colorSecondary">@color/colorSecondary_dob</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary_dob</item>
     </style>
     <style name="AppThemeDob.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -32,6 +37,8 @@
         <item name="colorPrimary">@color/colorPrimary_ic</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark_ic</item>
         <item name="colorAccent">@color/colorAccent_ic</item>
+        <item name="colorSecondary">@color/colorSecondary_ic</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary_ic</item>
     </style>
     <style name="AppThemeIc.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -45,6 +52,8 @@
         <item name="colorPrimary">@color/colorPrimary_pg</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark_pg</item>
         <item name="colorAccent">@color/colorAccent_pg</item>
+        <item name="colorSecondary">@color/colorSecondary_pg</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary_pg</item>
     </style>
     <style name="AppThemePg.NoActionBar">
         <item name="windowActionBar">false</item>
