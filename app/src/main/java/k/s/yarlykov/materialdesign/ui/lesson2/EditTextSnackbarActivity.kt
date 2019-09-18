@@ -1,6 +1,5 @@
 package k.s.yarlykov.materialdesign.ui.lesson2
 
-import android.app.TaskStackBuilder
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
@@ -10,7 +9,6 @@ import k.s.yarlykov.materialdesign.R
 import k.s.yarlykov.materialdesign.extentions.getColorFromAttr
 import k.s.yarlykov.materialdesign.ui.BaseActivity
 import kotlinx.android.synthetic.main.activity_lesson2_text_fields.*
-import java.util.regex.Pattern
 
 class EditTextSnackbarActivity : BaseActivity() {
 
@@ -21,85 +19,79 @@ class EditTextSnackbarActivity : BaseActivity() {
     }
 
     private fun initViews() {
-
         buttonEnter.setOnClickListener {
-
-            if (!isAuthSuccessful()) {
-                onAuthAction(retryAuth)
+            if (isAuthSuccessful()) {
+                postAuthAction(getData, resources.getString(R.string.oops_message))
             } else {
-                onAuthAction(retryAuth)
+                postAuthAction(retryAuth, resources.getString(R.string.invalid_message))
             }
         }
     }
 
+    // Авторизация пользователя
     private fun isAuthSuccessful(): Boolean {
         return validateInput()
     }
 
-    private fun onAuthAction(action: (View) -> Unit) {
+    // Действия после авторизации
+    private fun postAuthAction(onAction: (View) -> Unit, message: String) {
 
         with(
             Snackbar.make(
                 parent_l2_1,
-                resources.getString(R.string.error_auth),
+                message,
                 Snackbar.LENGTH_LONG
             )
         ) {
             setActionTextColor(this@EditTextSnackbarActivity.getColorFromAttr(R.attr.colorPrimary))
-            setAction(resources.getString(R.string.retry_action), action)
+            setAction(resources.getString(R.string.snack_action), onAction)
 
             // Стиль и размер шрифта Action
             view.findViewById<TextView>(com.google.android.material.R.id.snackbar_action).also {view ->
-                view.textSize *= 0.7f
                 view.setTypeface(view.typeface, Typeface.BOLD)
             }
             show()
         }
     }
 
+    // Валидация введенного текста с подсвечиванием ошибок
     private fun validateInput() : Boolean {
+
+        fun showError(view: TextView, error: String) = view.setError(error)
+        fun hideError(view: TextView) = view.setError(null)
+
         val login = loginInputView.text.toString()
         val password = passwordInputView.text.toString()
 
-        if(checkLogin.matcher(login).matches()) {
+        if(checkLogin.matches(login)) {
             hideError(loginInputView)
         } else {
-            showError(loginInputView, "Incorrect username")
+            showError(loginInputView, "Invalid username")
             return false
         }
 
-        if(checkPassword.matcher(password).matches()) {
+        if(checkPassword.matches(password)) {
             hideError(passwordInputView)
         } else {
-            showError(passwordInputView, "incorrect password")
+            showError(passwordInputView, "Invalid password")
             return false
         }
 
         return true
     }
 
+    // Заглушка
+    private val retryAuth: (View) -> Unit = {}
 
     // Очистить поля ввода для повтора авторизации
-    private val retryAuth: (View) -> Unit = {
+    private val getData: (View) -> Unit = {
         loginInputView.text?.clear()
         passwordInputView.text?.clear()
         loginInputView.requestFocus()
     }
 
-    private fun showError(view: TextView, error: String) {
-        view.error = error
-    }
-    fun hideError(view: TextView) {
-        view.error = null
-    }
-
-    override fun onPrepareNavigateUpTaskStack(builder: TaskStackBuilder?) {
-
-    }
-
     companion object {
-        val checkLogin = Pattern.compile("^[A-Z][a-z]{3,5}$")
-        val checkPassword = Pattern.compile("^(?=^.{4,}$)(?=.+\\d)(?=.+[a-z])(?=.+[A-Z])(?!.*\\s).*$")
+        val checkLogin = Regex("^[A-Z][a-z]{3,5}$")
+        val checkPassword = Regex("^(?=^.{4,}$)(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).*$")
     }
-
 }
