@@ -16,10 +16,20 @@
 
     <string name="menu_theme_dob">Orange - Brown</string>
     <string name="menu_theme_ic">Indigo - Cyan</string>
-    <string name="menu_theme_pg">Ping - Gray</string>
+    <string name="menu_theme_pg">Pink - Gray</string>
     <string name="menu_theme_default">Default</string>
 
+    <string name="menu_category_nav">Navigation</string>
+    <string name="menu_start_activity_l1">Lesson 1</string>
+    <string name="menu_start_activity_l2_1">Lesson 2.1</string>
+    <string name="menu_start_activity_l2_2">Lesson 2.2</string>
 
+    <!--Lesson1-->
+    <string name="simple_text">Material Design</string>
+
+    <!--Lesson2-->
+    <string name="hint_login">Username</string>
+    <string name="hint_password">Password</string>
 
 
 </resources>

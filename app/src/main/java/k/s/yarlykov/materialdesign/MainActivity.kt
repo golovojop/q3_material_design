@@ -1,28 +1,26 @@
 package k.s.yarlykov.materialdesign
 
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.Snackbar
-import android.support.v4.view.GravityCompat
-import android.support.v7.app.ActionBarDrawerToggle
-import android.view.MenuItem
-import android.support.v4.widget.DrawerLayout
-import android.support.design.widget.NavigationView
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
+import k.s.yarlykov.materialdesign.extentions.create
+import k.s.yarlykov.materialdesign.ui.BaseActivity
+import k.s.yarlykov.materialdesign.ui.lesson1.LessonOneActivity
+import k.s.yarlykov.materialdesign.ui.lesson2.EditTextSnackbarActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
-import kotlinx.android.synthetic.main.nav_header_main.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Установка темы
-        setTheme(lastTheme)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -77,26 +75,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_theme_dob -> {
-                lastTheme = R.style.AppThemeDob
+                updateTheme(R.style.AppThemeDob)
                 recreate()
             }
             R.id.nav_theme_ic -> {
-                lastTheme = R.style.AppThemeIc
+                updateTheme(R.style.AppThemeIc)
                 recreate()
             }
             R.id.nav_theme_pg -> {
-                lastTheme = R.style.AppThemePg
+                updateTheme(R.style.AppThemePg)
                 recreate()
             }
             R.id.nav_theme_default -> {
-                lastTheme = R.style.AppTheme
+                updateTheme(R.style.AppTheme)
                 recreate()
             }
-            R.id.nav_share -> {
-
+            R.id.nav_start_l1 -> {
+                this.create(LessonOneActivity::class.java)
             }
-            R.id.nav_send -> {
-
+            R.id.nav_start_l2_1 -> {
+                this.create(EditTextSnackbarActivity::class.java)
             }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
@@ -104,9 +102,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
+    // Настройка фона для элемента заголовка в nav_header_main
     private fun setNavHeaderBackground(header: View) {
-
-        val bgId = when (lastTheme) {
+        val bgId = when (currentTheme()) {
             R.style.AppThemeDob -> R.drawable.side_nav_bar_dob
             R.style.AppThemeIc -> R.drawable.side_nav_bar_ic
             R.style.AppThemePg -> R.drawable.side_nav_bar_pg
@@ -114,10 +112,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         header.background = ContextCompat.getDrawable(this, bgId)
-    }
-
-    companion object {
-        private var lastTheme: Int = R.style.AppTheme
     }
 }
 

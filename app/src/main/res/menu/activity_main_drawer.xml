@@ -22,17 +22,20 @@
                 android:title="@string/menu_theme_default"/>
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/menu_category_nav">
         <menu>
             <item
-                    android:id="@+id/nav_share"
-                    android:icon="@drawable/ic_menu_share"
-                    android:title="@string/menu_share"/>
+                    android:id="@+id/nav_start_l1"
+                    android:icon="@drawable/ic_menu_launch"
+                    android:title="@string/menu_start_activity_l1"/>
             <item
-                    android:id="@+id/nav_send"
-                    android:icon="@drawable/ic_menu_send"
-                    android:title="@string/menu_send"/>
+                    android:id="@+id/nav_start_l2_1"
+                    android:icon="@drawable/ic_menu_launch"
+                    android:title="@string/menu_start_activity_l2_1"/>
+            <item
+                    android:id="@+id/nav_start_l2_2"
+                    android:icon="@drawable/ic_menu_launch"
+                    android:title="@string/menu_start_activity_l2_2"/>
         </menu>
     </item>
-
 </menu>
