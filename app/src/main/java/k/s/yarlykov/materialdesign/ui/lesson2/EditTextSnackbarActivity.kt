@@ -2,6 +2,7 @@ package k.s.yarlykov.materialdesign.ui.lesson2
 
 import android.graphics.Typeface
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
 import k.s.yarlykov.materialdesign.R
@@ -20,17 +21,17 @@ class EditTextSnackbarActivity : BaseActivity() {
     private fun initViews() {
 
         buttonEnter.setOnClickListener {
-            if (!onAuthenticate()) {
-                onAuthErrorAlert()
+            if (!isAuthSuccessful()) {
+                onAuthAction(retryAuth)
             }
         }
     }
 
-    private fun onAuthenticate(): Boolean {
+    private fun isAuthSuccessful(): Boolean {
         return false
     }
 
-    private fun onAuthErrorAlert() {
+    private fun onAuthAction(op: (View) -> Unit) {
 
         with(
             Snackbar.make(
@@ -40,11 +41,7 @@ class EditTextSnackbarActivity : BaseActivity() {
             )
         ) {
             setActionTextColor(this@EditTextSnackbarActivity.getColorFromAttr(R.attr.colorPrimary))
-            setAction(resources.getString(R.string.retry_action)) {
-                loginInputView.text?.clear()
-                passwordInputView.text?.clear()
-                loginInputView.requestFocus()
-            }
+            setAction(resources.getString(R.string.retry_action), op)
 
             // Стиль и размер шрифта Action
             view.findViewById<TextView>(com.google.android.material.R.id.snackbar_action).also {view ->
@@ -53,5 +50,12 @@ class EditTextSnackbarActivity : BaseActivity() {
             }
             show()
         }
+    }
+
+    // Очистить поля ввода для повтора авторизации
+    private val retryAuth: (View) -> Unit = {
+        loginInputView.text?.clear()
+        passwordInputView.text?.clear()
+        loginInputView.requestFocus()
     }
 }
