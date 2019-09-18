@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+        android:id="@+id/parent_l2_1"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_gravity="center"
         android:orientation="vertical">
     <com.google.android.material.textfield.TextInputLayout
@@ -12,6 +13,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
             android:layout_marginEnd="48dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            app:counterOverflowTextAppearance="@android:color/holo_red_dark"
             android:hint="@string/hint_login">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -23,6 +27,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:endIconMode="password_toggle"
             android:id="@+id/passwordInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,4 +42,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonEnter"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/button_action"/>
 </LinearLayout>

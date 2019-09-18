@@ -30,6 +30,11 @@
     <!--Lesson2-->
     <string name="hint_login">Username</string>
     <string name="hint_password">Password</string>
+    <string name="button_action">ENTER</string>
+    <string name="retry_action">RETRY</string>
+    <string name="error_auth">Incorrect username or password</string>
+
+
 
 
 </resources>
