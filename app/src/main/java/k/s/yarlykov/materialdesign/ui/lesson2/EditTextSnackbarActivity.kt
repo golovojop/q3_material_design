@@ -21,9 +21,10 @@ class EditTextSnackbarActivity : BaseActivity() {
     private fun initViews() {
         buttonEnter.setOnClickListener {
             if (isAuthSuccessful()) {
-                postAuthAction(getData, resources.getString(R.string.oops_message))
+                postAuthSnackbar(resources.getString(R.string.ok_message))
+                clearAll()
             } else {
-                postAuthAction(retryAuth, resources.getString(R.string.invalid_message))
+                postAuthSnackbar(resources.getString(R.string.invalid_message), retryAuth)
             }
         }
     }
@@ -34,8 +35,7 @@ class EditTextSnackbarActivity : BaseActivity() {
     }
 
     // Действия после авторизации
-    private fun postAuthAction(onAction: (View) -> Unit, message: String) {
-
+    private fun postAuthSnackbar(message: String, onAction: ((View) -> Unit)? = null) {
         with(
             Snackbar.make(
                 parent_l2_1,
@@ -43,50 +43,58 @@ class EditTextSnackbarActivity : BaseActivity() {
                 Snackbar.LENGTH_LONG
             )
         ) {
-            setActionTextColor(this@EditTextSnackbarActivity.getColorFromAttr(R.attr.colorPrimary))
-            setAction(resources.getString(R.string.snack_action), onAction)
 
-            // Стиль и размер шрифта Action
-            view.findViewById<TextView>(com.google.android.material.R.id.snackbar_action).also {view ->
-                view.setTypeface(view.typeface, Typeface.BOLD)
+            // Обработчик Action
+            onAction?.let { op ->
+                setActionTextColor(this@EditTextSnackbarActivity.getColorFromAttr(R.attr.colorPrimary))
+                setAction(resources.getString(R.string.snack_action), op)
+
+                // Стиль и размер шрифта кнопки Action
+                view.findViewById<TextView>(com.google.android.material.R.id.snackbar_action).also { view ->
+                    view.setTypeface(view.typeface, Typeface.BOLD)
+                }
             }
+
             show()
         }
     }
 
     // Валидация введенного текста с подсвечиванием ошибок
-    private fun validateInput() : Boolean {
+    private fun validateInput(): Boolean {
 
-        fun showError(view: TextView, error: String) = view.setError(error)
-        fun hideError(view: TextView) = view.setError(null)
-
-        val login = loginInputView.text.toString()
-        val password = passwordInputView.text.toString()
-
-        if(checkLogin.matches(login)) {
-            hideError(loginInputView)
-        } else {
-            showError(loginInputView, "Invalid username")
-            return false
+        // Проверка поля Username
+        with(loginInputView) {
+            if (checkLogin.matches(text.toString())) {
+                error = null
+            } else {
+                error = "Invalid username"
+                return false
+            }
         }
 
-        if(checkPassword.matches(password)) {
-            hideError(passwordInputView)
-        } else {
-            showError(passwordInputView, "Invalid password")
-            return false
+        with(passwordInputView) {
+            if (checkPassword.matches(text.toString())) {
+                error = null
+
+            } else {
+                error = "Invalid password"
+                return false
+            }
         }
 
         return true
     }
 
-    // Заглушка
-    private val retryAuth: (View) -> Unit = {}
+    // Скрыть сообщения об ошибке ввода
+    private val retryAuth: (View) -> Unit = {
+        loginInputView.error = null
+        passwordInputView.error = null
+    }
 
     // Очистить поля ввода для повтора авторизации
-    private val getData: (View) -> Unit = {
-        loginInputView.text?.clear()
+    private val clearAll = {
         passwordInputView.text?.clear()
+        loginInputView.text?.clear()
         loginInputView.requestFocus()
     }
 
