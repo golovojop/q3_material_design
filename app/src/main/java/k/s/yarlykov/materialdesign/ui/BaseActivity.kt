@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import k.s.yarlykov.materialdesign.application.MaterialDesignApp
 
-abstract class BaseActivity :  AppCompatActivity() {
-    lateinit var app : MaterialDesignApp
+abstract class BaseActivity : AppCompatActivity() {
+    lateinit var app: MaterialDesignApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // Установка темы
@@ -14,7 +14,7 @@ abstract class BaseActivity :  AppCompatActivity() {
         super.onCreate(savedInstanceState)
     }
 
-    // Обновить текущую схему
+    // Обновить текущую тему
     fun updateTheme(theme: Int) {
         app.currentTheme = theme
     }
