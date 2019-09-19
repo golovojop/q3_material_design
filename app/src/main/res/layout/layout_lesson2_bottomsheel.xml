@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/l2_bottomSheet"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:background="@android:color/transparent"
+              app:behavior_hideable="false"
+              app:behavior_peekHeight="28dp"
+              app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <!--Крышка-слайдер с закругленными верхними углами-->
+    <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            app:shapeAppearanceOverlay="@style/AppShapeAppearance.LargeComponent"
+            style="@style/AppShapeAppearance.LargeComponent"
+            android:backgroundTint="?attr/colorPrimary">
+        <View
+                android:id="@+id/vSlider"
+                android:layout_width="12dp"
+                android:layout_height="4dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:background="#FFFFFF"/>
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="center"
+                      android:gravity="center"
+                      android:orientation="horizontal">
+            <ImageView android:layout_width="64dp"
+                       android:layout_height="64dp"
+                       android:scaleType="centerCrop"
+                       android:src="@drawable/twitter"/>
+            <ImageView android:layout_width="64dp"
+                       android:layout_height="64dp"
+                       android:scaleType="centerCrop"
+                       android:src="@drawable/instagram"
+                       android:layout_margin="36dp"/>
+            <ImageView android:layout_width="64dp"
+                       android:layout_height="64dp"
+                       android:scaleType="centerCrop"
+                       android:src="@drawable/whatsapp"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_gravity="center"
+                      android:gravity="center"
+                      android:orientation="horizontal">
+            <ImageView android:layout_width="64dp"
+                       android:layout_height="64dp"
+                       android:scaleType="centerCrop"
+                       android:src="@drawable/search"/>
+            <ImageView android:layout_width="64dp"
+                       android:layout_height="64dp"
+                       android:scaleType="centerCrop"
+                       android:src="@drawable/youtube"
+                       android:layout_margin="36dp"/>
+            <ImageView android:layout_width="64dp"
+                       android:layout_height="64dp"
+                       android:scaleType="centerCrop"
+                       android:src="@drawable/facebook"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
