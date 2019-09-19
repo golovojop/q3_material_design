@@ -21,10 +21,17 @@ class EditTextSnackbarActivity : BaseActivity() {
     private fun initViews() {
         buttonEnter.setOnClickListener {
             if (isAuthSuccessful()) {
-                postAuthSnackbar(resources.getString(R.string.ok_message))
-                clearAll()
+                postAuthSnackbar(
+                    message = resources.getString(R.string.ok_message),
+                    callback = snackCallback)
             } else {
-                postAuthSnackbar(resources.getString(R.string.invalid_message), retryAuth)
+
+                val actionText = resources.getString(R.string.snack_action_retry)
+                val actionHandler = retryAuth
+
+                postAuthSnackbar(
+                    message = resources.getString(R.string.invalid_message),
+                    action = Pair(actionText, actionHandler))
             }
         }
     }
@@ -34,8 +41,12 @@ class EditTextSnackbarActivity : BaseActivity() {
         return validateInput()
     }
 
-    // Действия после авторизации
-    private fun postAuthSnackbar(message: String, onAction: ((View) -> Unit)? = null) {
+    // Действия после авторизации: показать Snackbar
+    private fun postAuthSnackbar(
+        message: String,                                // Секст сообщения
+        action: Pair<String, (View) -> Unit>? = null,   // Action: текст на кнопке и обработчик
+        callback: (Snackbar.Callback)? = null           // Обработчик событий в Snackbar
+    ) {
         with(
             Snackbar.make(
                 parent_l2_1,
@@ -45,9 +56,9 @@ class EditTextSnackbarActivity : BaseActivity() {
         ) {
 
             // Обработчик Action
-            onAction?.let { op ->
+            action?.let {
                 setActionTextColor(this@EditTextSnackbarActivity.getColorFromAttr(R.attr.colorPrimary))
-                setAction(resources.getString(R.string.snack_action), op)
+                setAction(it.first, it.second)
 
                 // Стиль и размер шрифта кнопки Action
                 view.findViewById<TextView>(com.google.android.material.R.id.snackbar_action).also { view ->
@@ -55,9 +66,15 @@ class EditTextSnackbarActivity : BaseActivity() {
                 }
             }
 
+            // Обработчик событий в Snackbar
+            callback?.let { cb ->
+                addCallback(cb)
+            }
+
             show()
         }
     }
+
 
     // Валидация введенного текста с подсвечиванием ошибок
     private fun validateInput(): Boolean {
@@ -91,15 +108,26 @@ class EditTextSnackbarActivity : BaseActivity() {
         passwordInputView.error = null
     }
 
+    private val snackCallback = object : Snackbar.Callback() {
+
+        override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+            super.onDismissed(transientBottomBar, event)
+
+            if (event == DISMISS_EVENT_TIMEOUT) {
+                refreshViews()
+            }
+        }
+    }
+
     // Очистить поля ввода для повтора авторизации
-    private val clearAll = {
+    private fun refreshViews() {
         passwordInputView.text?.clear()
         loginInputView.text?.clear()
         loginInputView.requestFocus()
     }
 
     companion object {
-        val checkLogin = Regex("^[A-Z][a-z]{3,5}$")
+        val checkLogin = Regex("^[A-Z,a-z]{3,5}$")
         val checkPassword = Regex("^(?=^.{4,}$)(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).*$")
     }
 }

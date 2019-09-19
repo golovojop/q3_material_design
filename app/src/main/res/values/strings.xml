@@ -33,6 +33,6 @@
     <string name="button_action">ENTER</string>
     <string name="ok_message">Successfully</string>
     <string name="invalid_message">Invalid input</string>
-    <string name="snack_action">RETRY</string>
+    <string name="snack_action_retry">RETRY</string>
 
 </resources>
