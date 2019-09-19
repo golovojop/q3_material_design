@@ -14,6 +14,7 @@ import com.google.android.material.snackbar.Snackbar
 import k.s.yarlykov.materialdesign.extentions.create
 import k.s.yarlykov.materialdesign.ui.BaseActivity
 import k.s.yarlykov.materialdesign.ui.lesson1.LessonOneActivity
+import k.s.yarlykov.materialdesign.ui.lesson2.BottomSheetActivity
 import k.s.yarlykov.materialdesign.ui.lesson2.EditTextSnackbarActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
@@ -96,6 +97,9 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             R.id.nav_start_l2_1 -> {
                 this.create(EditTextSnackbarActivity::class.java)
             }
+            R.id.nav_start_l2_2 -> {
+                this.create(BottomSheetActivity::class.java)
+            }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         drawerLayout.closeDrawer(GravityCompat.START)
@@ -114,5 +118,3 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         header.background = ContextCompat.getDrawable(this, bgId)
     }
 }
-
-
