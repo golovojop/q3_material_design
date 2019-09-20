@@ -7,6 +7,6 @@ import k.s.yarlykov.materialdesign.ui.BaseActivity
 class BottomSheetActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_lesson2_bottomsheet)
+        setContentView(R.layout.activity_social_share)
     }
 }

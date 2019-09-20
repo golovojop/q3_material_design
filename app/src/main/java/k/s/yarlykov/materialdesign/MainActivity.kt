@@ -15,7 +15,7 @@ import k.s.yarlykov.materialdesign.extentions.create
 import k.s.yarlykov.materialdesign.ui.BaseActivity
 import k.s.yarlykov.materialdesign.ui.lesson1.LessonOneActivity
 import k.s.yarlykov.materialdesign.ui.lesson2.BottomSheetActivity
-import k.s.yarlykov.materialdesign.ui.lesson2.EditTextSnackbarActivity
+import k.s.yarlykov.materialdesign.ui.lesson2.AuthorizationActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
@@ -88,27 +88,11 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-//            R.id.nav_theme_dob -> {
-//                updateTheme(R.style.AppThemeDob)
-//                recreate()
-//            }
-//            R.id.nav_theme_ic -> {
-//                updateTheme(R.style.AppThemeIc)
-//                recreate()
-//            }
-//            R.id.nav_theme_pg -> {
-//                updateTheme(R.style.AppThemePg)
-//                recreate()
-//            }
-//            R.id.nav_theme_default -> {
-//                updateTheme(R.style.AppTheme)
-//                recreate()
-//            }
             R.id.nav_start_l1 -> {
                 this.create(LessonOneActivity::class.java)
             }
             R.id.nav_start_l2_1 -> {
-                this.create(EditTextSnackbarActivity::class.java)
+                this.create(AuthorizationActivity::class.java)
             }
             R.id.nav_start_l2_2 -> {
                 this.create(BottomSheetActivity::class.java)

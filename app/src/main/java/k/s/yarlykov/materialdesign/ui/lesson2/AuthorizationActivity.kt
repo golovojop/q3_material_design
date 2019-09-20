@@ -8,13 +8,13 @@ import com.google.android.material.snackbar.Snackbar
 import k.s.yarlykov.materialdesign.R
 import k.s.yarlykov.materialdesign.extentions.getColorFromAttr
 import k.s.yarlykov.materialdesign.ui.BaseActivity
-import kotlinx.android.synthetic.main.activity_lesson2_text_fields.*
+import kotlinx.android.synthetic.main.activity_autorization.*
 
-class EditTextSnackbarActivity : BaseActivity() {
+class AuthorizationActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_lesson2_text_fields)
+        setContentView(R.layout.activity_autorization)
         initViews()
     }
 
@@ -57,7 +57,7 @@ class EditTextSnackbarActivity : BaseActivity() {
 
             // Обработчик Action
             action?.let {
-                setActionTextColor(this@EditTextSnackbarActivity.getColorFromAttr(R.attr.colorPrimary))
+                setActionTextColor(this@AuthorizationActivity.getColorFromAttr(R.attr.colorPrimary))
                 setAction(it.first, it.second)
 
                 // Стиль и размер шрифта кнопки Action
