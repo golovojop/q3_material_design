@@ -23,6 +23,7 @@
         <activity android:name=".ui.lesson1.LessonOneActivity"/>
         <activity android:name=".ui.lesson2.AuthorizationActivity"/>
         <activity android:name=".ui.lesson2.BottomSheetActivity"/>
+        <activity android:name=".ui.lesson3.ToolbarActivityL3"/>
         <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>
     </application>
 

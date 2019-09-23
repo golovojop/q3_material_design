@@ -37,4 +37,6 @@
     <string name="invalid_message">Invalid input</string>
     <string name="snack_action_retry">RETRY</string>
 
+    <string name="lesson_3_activity_title">Lesson 3</string>
+
 </resources>
