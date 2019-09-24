@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+                android:id="@+id/nav_fruits"
+                android:icon="@drawable/ic_menu"
+                android:title="@string/menu_fruits"/>
+        <item
+                android:id="@+id/nav_vegetables"
+                android:icon="@drawable/ic_menu"
+                android:title="@string/menu_vegetables"/>
+        <item
+                android:id="@+id/nav_nature"
+                android:icon="@drawable/ic_nature"
+                android:title="@string/menu_nature"/>
+    </group>
+
+</menu>
