@@ -10,13 +10,15 @@
         tools:showIn="@layout/app_bar_content_selection"
         tools:context=".ui.lesson4.ContentSelectionActivity">
 
+
     <com.google.android.material.card.MaterialCardView
+            android:id="@+id/menuFrame"
             android:layout_gravity="center"
             android:layout_width="256dp"
             android:layout_height="256dp"
             card_view:cardCornerRadius="6dp"
-            android:visibility="invisible"
             app:cardElevation="6dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,19 +27,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-            <ImageView android:layout_width="match_parent"
+            <ImageView
+                    android:id="@+id/menuPic"
+                    android:layout_width="match_parent"
                        android:layout_height="192dp"
                        android:scaleType="centerCrop"
-                       android:src="@drawable/card_pic"/>
+                       android:src="@drawable/vegetables"/>
 
-            <TextView android:layout_width="match_parent"
+            <TextView
+                    android:id="@+id/menuCategory"
+                    android:layout_width="match_parent"
                       android:layout_height="match_parent"
                       android:gravity="center"
                       android:textSize="24sp"
                       android:text="@string/simple_text"
                       tools:text="@string/simple_text"
                       android:textStyle="bold|italic"
-                      android:textColor="@android:color/holo_green_dark"
+                      android:textColor="?attr/colorPrimary"
                       android:fontFamily="@font/rochester"/>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
