@@ -45,8 +45,8 @@
     <string name="title_activity_content_selection">ContentSelectionActivity</string>
 
     <!-- Lesson 4 -->
-    <string name="pic_foods_fruits">Fruits</string>
-    <string name="pic_foods_vegetables">Vegetables</string>
+    <string name="pic_fruits">Fruits</string>
+    <string name="pic_vegetables">Vegetables</string>
     <string name="pic_nature">Nature</string>
 
 </resources>
