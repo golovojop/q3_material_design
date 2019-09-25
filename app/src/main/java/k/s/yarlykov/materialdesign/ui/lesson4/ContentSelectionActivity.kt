@@ -9,10 +9,10 @@ import android.view.MenuItem
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import android.view.Menu
+import android.view.View
 import k.s.yarlykov.materialdesign.R
 import kotlinx.android.synthetic.main.app_bar_content_selection.*
+import kotlinx.android.synthetic.main.content_selection.*
 
 class ContentSelectionActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -22,9 +22,8 @@ class ContentSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
         setSupportActionBar(toolbar_l4)
 
         val fab: FloatingActionButton = findViewById(R.id.fab_l4)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        fab.setOnClickListener { _ ->
+            finish()
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout_l4)
         val navView: NavigationView = findViewById(R.id.nav_view_l4)
@@ -66,19 +65,30 @@ class ContentSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
+
+        var visibility = View.VISIBLE
+
         when (item.itemId) {
             R.id.nav_fruits -> {
-
+                setCardContent(R.drawable.fruits, R.string.pic_fruits)
             }
             R.id.nav_vegetables -> {
-
+                setCardContent(R.drawable.vegetables, R.string.pic_vegetables)
             }
             R.id.nav_nature -> {
-
+                setCardContent(R.drawable.nature, R.string.pic_nature)
             }
          }
+
+        menuFrame.visibility = visibility
+
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout_l4)
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun setCardContent(picId : Int, textId : Int) {
+        menuPic.setImageResource(picId)
+        menuCategory.text = getString(textId)
     }
 }
