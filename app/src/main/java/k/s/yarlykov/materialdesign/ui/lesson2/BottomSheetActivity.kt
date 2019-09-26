@@ -31,17 +31,10 @@ class BottomSheetActivity : BaseActivity() {
                 }
             }
         }
-
-//        private void animateBottomSheetArrows(float slideOffset) {
-//            mLeftArrow.setRotation(slideOffset * -180);
-//            mRightArrow.setRotation(slideOffset * 180);
-//        }
-
     }
 
+    // Поворот стрелки.
     private fun animateBottomSheetArrows(slideOffset : Float) {
-        l2_bottomSheet.rotation = slideOffset * -180f
+        imgArrow.rotation = slideOffset * -180f
     }
-
-
 }
