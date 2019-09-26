@@ -26,4 +26,12 @@
     <color name="colorAccent_pg">#FF4081</color>
     <color name="colorSecondary_pg">#FF4081</color>
     <color name="colorOnSecondary_pg">#FFFFFF</color>
+
+
+    <!-- Lesson4 Colors -->
+    <color name="colorPrimary_l4">#0188C0</color>
+    <color name="colorPrimaryDark_l4">#005D98</color>
+    <color name="colorAccent_l4">#8d6e63</color>
+    <color name="colorSecondary_l4">#be9c91</color>
+    <color name="colorOnSecondary_l4">#FFFFFF</color>
 </resources>

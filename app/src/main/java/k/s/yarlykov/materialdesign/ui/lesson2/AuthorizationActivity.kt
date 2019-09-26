@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
+import k.s.yarlykov.materialdesign.ui.lesson4.ContentSelectionActivity
 import k.s.yarlykov.materialdesign.R
 import k.s.yarlykov.materialdesign.extentions.create
 import k.s.yarlykov.materialdesign.extentions.getColorFromAttr
 import k.s.yarlykov.materialdesign.ui.BaseActivity
-import k.s.yarlykov.materialdesign.ui.lesson3.ToolbarActivityL3
 import kotlinx.android.synthetic.main.activity_autorization.*
 
 class AuthorizationActivity : BaseActivity() {
@@ -23,7 +23,7 @@ class AuthorizationActivity : BaseActivity() {
     private fun initViews() {
         buttonEnter.setOnClickListener {
             if (isAuthSuccessful()) {
-                this@AuthorizationActivity.create(ToolbarActivityL3::class.java)
+                this@AuthorizationActivity.create(ContentSelectionActivity::class.java)
 
 //                postAuthSnackbar(
 //                    message = resources.getString(R.string.ok_message),

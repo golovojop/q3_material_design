@@ -14,6 +14,10 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
 
+    <string name="menu_fruits">Fruits</string>
+    <string name="menu_vegetables">Vegetables</string>
+    <string name="menu_nature">Nature</string>
+
     <string name="menu_theme_select">Theme selection</string>
     <string name="menu_theme_dob">Orange Brown</string>
     <string name="menu_theme_ic">Indigo Cyan</string>
@@ -38,5 +42,11 @@
     <string name="snack_action_retry">RETRY</string>
 
     <string name="lesson_3_activity_title">Lesson 3</string>
+    <string name="title_activity_content_selection">ContentSelectionActivity</string>
+
+    <!-- Lesson 4 -->
+    <string name="pic_fruits">Fruits</string>
+    <string name="pic_vegetables">Vegetables</string>
+    <string name="pic_nature">Nature</string>
 
 </resources>

@@ -3,13 +3,23 @@
           package="k.s.yarlykov.materialdesign">
 
     <application
+            android:name=".application.MaterialDesignApp"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:name=".application.MaterialDesignApp"
             android:theme="@style/AppTheme">
+        <activity
+                android:name=".ui.lesson4.ContentSelectionActivity"
+                android:label="@string/title_activity_content_selection"
+                android:theme="@style/AppThemeL4"
+                android:parentActivityName=".ui.lesson2.AuthorizationActivity">
+
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="k.s.yarlykov.materialdesign.ui.lesson2.AuthorizationActivity"/>
+        </activity>
         <activity
                 android:name=".MainActivity"
                 android:label="@string/app_name"
@@ -24,7 +34,10 @@
         <activity android:name=".ui.lesson2.AuthorizationActivity"/>
         <activity android:name=".ui.lesson2.BottomSheetActivity"/>
         <activity android:name=".ui.lesson3.ToolbarActivityL3"/>
-        <meta-data android:name="preloaded_fonts" android:resource="@array/preloaded_fonts"/>
+
+        <meta-data
+                android:name="preloaded_fonts"
+                android:resource="@array/preloaded_fonts"/>
     </application>
 
 </manifest>
