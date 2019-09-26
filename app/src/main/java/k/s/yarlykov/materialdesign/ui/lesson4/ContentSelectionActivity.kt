@@ -66,8 +66,6 @@ class ContentSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
 
-        var visibility = View.VISIBLE
-
         when (item.itemId) {
             R.id.nav_fruits -> {
                 setCardContent(R.drawable.fruits, R.string.pic_fruits)
@@ -80,7 +78,7 @@ class ContentSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
             }
          }
 
-        menuFrame.visibility = visibility
+        menuFrame.visibility = View.VISIBLE
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout_l4)
         drawerLayout.closeDrawer(GravityCompat.START)
