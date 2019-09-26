@@ -73,7 +73,7 @@ class ContentSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
                 setCardContent(R.drawable.fruits, R.string.pic_fruits)
             }
             R.id.nav_vegetables -> {
-                setCardContent(R.drawable.vegetables, R.string.pic_vegetables)
+                setCardContent(R.drawable.vegetables_purple, R.string.pic_vegetables)
             }
             R.id.nav_nature -> {
                 setCardContent(R.drawable.nature, R.string.pic_nature)
