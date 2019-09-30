@@ -63,6 +63,7 @@ class ContentSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
          }
 
         menuFrame.visibility = View.VISIBLE
+        nestedScroll.visibility = View.VISIBLE
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout_l4)
         drawerLayout.closeDrawer(GravityCompat.START)
