@@ -1,11 +1,3 @@
-/**
- * Materials
- *
- * Привязка анимации к состоянию BottomSheet
- * https://android.jlelse.eu/choreographic-animations-with-androids-bottomsheet-fef06e6ecb81
- * https://github.com/ogasimli/BottomSheetDemo
- */
-
 package k.s.yarlykov.materialdesign.ui.lesson2
 
 import android.os.Bundle
@@ -31,17 +23,10 @@ class BottomSheetActivity : BaseActivity() {
                 }
             }
         }
-
-//        private void animateBottomSheetArrows(float slideOffset) {
-//            mLeftArrow.setRotation(slideOffset * -180);
-//            mRightArrow.setRotation(slideOffset * 180);
-//        }
-
     }
 
+    // Поворот стрелки.
     private fun animateBottomSheetArrows(slideOffset : Float) {
-        l2_bottomSheet.rotation = slideOffset * -180f
+        imgArrow.rotation = slideOffset * -180f
     }
-
-
 }

@@ -39,15 +39,17 @@ class FabCustomBehavior (context: Context?, attrs: AttributeSet?) :
     ) {
 
         if (child.visibility == View.VISIBLE && dyConsumed > 0) {
-            child.hide(object : FloatingActionButton.OnVisibilityChangedListener() {
-                override fun onHidden(fab: FloatingActionButton?) {
-                    super.onHidden(fab)
-                    fab?.visibility = View.INVISIBLE
-                }
-            })
+            child.hide(fabVisibilityChangedListener)
 
         } else if (child.visibility == View.INVISIBLE && dyConsumed < 0) {
             child.show()
+        }
+    }
+
+    private val fabVisibilityChangedListener = object : FloatingActionButton.OnVisibilityChangedListener() {
+        override fun onHidden(fab: FloatingActionButton?) {
+            super.onHidden(fab)
+            fab?.visibility = View.INVISIBLE
         }
     }
 }
