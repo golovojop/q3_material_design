@@ -1,6 +1,7 @@
 package k.s.yarlykov.materialdesign.ui.lesson4
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -10,10 +11,11 @@ import androidx.recyclerview.widget.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import k.s.yarlykov.materialdesign.R
-import k.s.yarlykov.materialdesign.ui.lesson6.GridItemDecoration
-import k.s.yarlykov.materialdesign.ui.lesson6.RVAdapter
-import k.s.yarlykov.materialdesign.ui.lesson6.RVAdapterStraggered
-import k.s.yarlykov.materialdesign.ui.lesson6.StaggeredItemDecoration
+import k.s.yarlykov.materialdesign.ui.lesson6.*
+import k.s.yarlykov.materialdesign.ui.lesson6.fragments.FruitsFragment
+import k.s.yarlykov.materialdesign.ui.lesson6.fragments.NatureFragment
+import k.s.yarlykov.materialdesign.ui.lesson6.fragments.VegetablesFragment
+import kotlinx.android.parcel.Parcelize
 import kotlinx.android.synthetic.main.app_bar_content_selection.*
 import kotlinx.android.synthetic.main.content_selection.*
 
@@ -51,17 +53,23 @@ class ContentSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_fruits -> {
-                updateRecycleView(LayoutType.TYPE.LINEAR_CARD, R.array.name_of_fruits, R.array.fruit_pics)
-            }
+        val fragment = when (item.itemId) {
             R.id.nav_vegetables -> {
-                updateRecycleView(LayoutType.TYPE.GRID_CARD, R.array.name_of_vegs, R.array.veg_pics)
+                VegetablesFragment.create(R.array.name_of_vegs, R.array.veg_pics)
+//                updateRecycleView(LayoutType.TYPE.GRID_CARD, R.array.name_of_vegs, R.array.veg_pics)
             }
             R.id.nav_nature -> {
-                updateRecycleView(LayoutType.TYPE.STAGGERED_GRID, R.array.name_of_place, R.array.nature_pics)
+                NatureFragment.create(R.array.name_of_place, R.array.nature_pics)
+//                updateRecycleView(LayoutType.TYPE.STAGGERED_GRID, R.array.name_of_place, R.array.nature_pics)
             }
+            else -> {
+                FruitsFragment.create(R.array.name_of_fruits, R.array.fruit_pics)
+//                updateRecycleView(LayoutType.TYPE.LINEAR_CARD, R.array.name_of_fruits, R.array.fruit_pics)
+            }
+
         }
+
+        supportFragmentManager.beginTransaction().replace(R.id.content_frame, fragment)
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout_l4)
         drawerLayout.closeDrawer(GravityCompat.START)
@@ -98,24 +106,24 @@ class ContentSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
                 li.add(i, getResourceId(i, R.drawable.fruits))
             }
             recycle()
-            li.toTypedArray()
+            li
         }
 
         recycle_view.apply {
+            itemAnimator = DefaultItemAnimator()
             setHasFixedSize(true)
+
+            layoutManager = rvLayoutManager
             adapter = if (layoutType == LayoutType.TYPE.STAGGERED_GRID) {
                 RVAdapterStraggered(stuffPics.zip(stuffNames), rvItemResourceId)
             } else {
                 RVAdapter(stuffPics.zip(stuffNames), rvItemResourceId)
             }
-
-            layoutManager = rvLayoutManager
-            itemAnimator = DefaultItemAnimator()
         }
     }
 }
-
-data class LayoutType(val type: TYPE) {
+@Parcelize
+data class LayoutType(val type: TYPE): Parcelable {
     enum class TYPE {
         LINEAR_SIMPLE, LINEAR_CARD, GRID_CARD, STAGGERED_GRID
     }

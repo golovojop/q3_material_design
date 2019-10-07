@@ -9,17 +9,19 @@ class StaggeredItemDecoration(var columns: Int, val offset: Int) : RecyclerView.
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
 
-        val params = view.layoutParams as StaggeredGridLayoutManager.LayoutParams
+        val params = view.layoutParams// as StaggeredGridLayoutManager.LayoutParams
 
-        with(outRect) {
-            top = offset
+        if(params is StaggeredGridLayoutManager.LayoutParams) {
+            with(outRect) {
+                top = offset
 
-            if (params.spanIndex % 2 == 0) {
-                left = offset
-                right = offset / 2
-            } else {
-                left = offset / 2
-                right = offset
+                if (params.spanIndex % 2 == 0) {
+                    left = offset
+                    right = offset / 2
+                } else {
+                    left = offset / 2
+                    right = offset
+                }
             }
         }
     }

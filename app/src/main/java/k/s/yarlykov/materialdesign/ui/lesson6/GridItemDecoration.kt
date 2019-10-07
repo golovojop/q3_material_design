@@ -21,17 +21,19 @@ class GridItemDecoration(var columns: Int) : RecyclerView.ItemDecoration() {
         }
 
         val offset = (parentWidth/columns - view.layoutParams.width)/2
-        val params = view.layoutParams as GridLayoutManager.LayoutParams
+        val params = view.layoutParams
 
-        with(outRect) {
-            top = offset
+        if(params is GridLayoutManager.LayoutParams) {
+            with(outRect) {
+                top = offset
 
-            if(params.spanIndex % 2 == 0) {
-                left = offset
-                right = offset/2
-            } else {
-                left = offset/2
-                right = offset
+                if(params.spanIndex % 2 == 0) {
+                    left = offset
+                    right = offset/2
+                } else {
+                    left = offset/2
+                    right = offset
+                }
             }
         }
     }
