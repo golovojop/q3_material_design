@@ -11,18 +11,16 @@ class StaggeredItemDecoration(var columns: Int, val offset: Int) : RecyclerView.
 
         val params = view.layoutParams as StaggeredGridLayoutManager.LayoutParams
 
-//        if(params is StaggeredGridLayoutManager.LayoutParams) {
-            with(outRect) {
-                top = offset
+        with(outRect) {
+            top = offset
 
-                if (params.spanIndex % 2 == 0) {
-                    left = offset
-                    right = offset / 2
-                } else {
-                    left = offset / 2
-                    right = offset
-                }
+            if (params.spanIndex % 2 == 0) {
+                left = offset
+                right = offset / 2
+            } else {
+                left = offset / 2
+                right = offset
             }
-//        }
+        }
     }
 }

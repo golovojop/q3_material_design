@@ -15,25 +15,23 @@ class GridItemDecoration(var columns: Int) : RecyclerView.ItemDecoration() {
 
         val wm = parent.context.getSystemService(WINDOW_SERVICE) as WindowManager
 
-        val parentWidth = with(Point()){
+        val parentWidth = with(Point()) {
             wm.defaultDisplay.getSize(this)
             this.x
         }
 
-        val offset = (parentWidth/columns - view.layoutParams.width)/2
-        val params = view.layoutParams
+        val offset = (parentWidth / columns - view.layoutParams.width) / 2
+        val params = view.layoutParams as GridLayoutManager.LayoutParams
 
-        if(params is GridLayoutManager.LayoutParams) {
-            with(outRect) {
-                top = offset
+        with(outRect) {
+            top = offset
 
-                if(params.spanIndex % 2 == 0) {
-                    left = offset
-                    right = offset/2
-                } else {
-                    left = offset/2
-                    right = offset
-                }
+            if (params.spanIndex % 2 == 0) {
+                left = offset
+                right = offset / 2
+            } else {
+                left = offset / 2
+                right = offset
             }
         }
     }

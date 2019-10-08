@@ -23,13 +23,13 @@
     </integer-array>
 
     <integer-array name="nature_pics">
+        <item>@drawable/n_07</item>
         <item>@drawable/n_01</item>
         <item>@drawable/n_02</item>
         <item>@drawable/n_03</item>
         <item>@drawable/n_04</item>
         <item>@drawable/n_05</item>
         <item>@drawable/n_06</item>
-        <item>@drawable/n_07</item>
         <item>@drawable/n_08</item>
     </integer-array>
 

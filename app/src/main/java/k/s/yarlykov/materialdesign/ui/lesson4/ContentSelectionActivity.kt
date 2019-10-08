@@ -79,53 +79,8 @@ class ContentSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
-
-//    private fun updateRecycleView(layoutType: LayoutType.TYPE, textId: Int, picId: Int) {
-//
-//        val (rvItemResourceId, rvLayoutManager) = when(layoutType) {
-//            LayoutType.TYPE.LINEAR_CARD -> {
-//                Pair(R.layout.layout_rv_item_linear,
-//                    LinearLayoutManager(this))
-//            }
-//            LayoutType.TYPE.GRID_CARD -> {
-//                recycle_view.addItemDecoration(GridItemDecoration(2))
-//                Pair(R.layout.layout_rv_item_grid,
-//                    GridLayoutManager(this, 2))
-//            }
-//            LayoutType.TYPE.STAGGERED_GRID -> {
-//                recycle_view.addItemDecoration(StaggeredItemDecoration(2, 20))
-//                Pair(R.layout.layout_rv_item_grid_straggered, StaggeredGridLayoutManager(2,
-//                    StaggeredGridLayoutManager.VERTICAL) as RecyclerView.LayoutManager)
-//            }
-//            else -> {
-//                Pair(R.layout.layout_rv_item,
-//                    LinearLayoutManager(this))
-//            }
-//        }
-//
-//        val stuffNames: Array<String> = resources.getStringArray(textId)
-//        val stuffPics = with(resources.obtainTypedArray(picId)) {
-//            val li = mutableListOf<Int>()
-//            (0 until length()).forEach { i ->
-//                li.add(i, getResourceId(i, R.drawable.fruits))
-//            }
-//            recycle()
-//            li
-//        }
-//
-//        recycle_view.apply {
-//            itemAnimator = DefaultItemAnimator()
-//            setHasFixedSize(true)
-//
-//            layoutManager = rvLayoutManager
-//            adapter = if (layoutType == LayoutType.TYPE.STAGGERED_GRID) {
-//                RVAdapterStraggered(stuffPics.zip(stuffNames), rvItemResourceId)
-//            } else {
-//                RVAdapter(stuffPics.zip(stuffNames), rvItemResourceId)
-//            }
-//        }
-//    }
 }
+
 @Parcelize
 data class LayoutType(val type: TYPE): Parcelable {
     enum class TYPE {

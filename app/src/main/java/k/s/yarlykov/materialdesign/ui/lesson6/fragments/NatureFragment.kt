@@ -57,7 +57,7 @@ class NatureFragment : Fragment() {
 
         recycle_view.apply {
             setHasFixedSize(true)
-            addItemDecoration(StaggeredItemDecoration(2, 20))
+            addItemDecoration(StaggeredItemDecoration(2, 10))
             itemAnimator = DefaultItemAnimator()
             layoutManager = StaggeredGridLayoutManager(2,
                 StaggeredGridLayoutManager.VERTICAL)
