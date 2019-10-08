@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer-array name="fruit_pics">
-        <item>@drawable/f_01</item>
-        <item>@drawable/f_02</item>
         <item>@drawable/f_03</item>
+        <item>@drawable/f_02</item>
+        <item>@drawable/f_01</item>
         <item>@drawable/f_04</item>
         <item>@drawable/f_05</item>
         <item>@drawable/f_06</item>

@@ -7,4 +7,7 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="icon_size">56dp</dimen>
     <dimen name="icon_margin">36dp</dimen>
+    <dimen name="card_width">160dp</dimen>
+    <dimen name="card_height">160dp</dimen>
+
 </resources>

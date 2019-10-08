@@ -51,7 +51,7 @@ class FruitsFragment : Fragment() {
                 li.add(i, getResourceId(i, R.drawable.fruits))
             }
             recycle()
-            li
+            li.toTypedArray()
         }
 
         recycle_view.apply {

@@ -9,9 +9,9 @@ class StaggeredItemDecoration(var columns: Int, val offset: Int) : RecyclerView.
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
 
-        val params = view.layoutParams// as StaggeredGridLayoutManager.LayoutParams
+        val params = view.layoutParams as StaggeredGridLayoutManager.LayoutParams
 
-        if(params is StaggeredGridLayoutManager.LayoutParams) {
+//        if(params is StaggeredGridLayoutManager.LayoutParams) {
             with(outRect) {
                 top = offset
 
@@ -23,6 +23,6 @@ class StaggeredItemDecoration(var columns: Int, val offset: Int) : RecyclerView.
                     right = offset
                 }
             }
-        }
+//        }
     }
 }

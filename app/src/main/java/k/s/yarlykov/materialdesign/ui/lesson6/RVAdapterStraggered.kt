@@ -36,7 +36,7 @@ class RVAdapterStraggered(private val source: List<Pair<Int, String>>, private v
         fun bind(content: Pair<Int, String>) {
             iv.setImageResource(content.first)
             tv.text = content.second
-            iv.layoutParams.height = getRandomIntInRange(iv.layoutParams.height + 64, iv.layoutParams.height - 64)
+//            iv.layoutParams.height = getRandomIntInRange(iv.layoutParams.height + 64, iv.layoutParams.height - 64)
         }
     }
 
