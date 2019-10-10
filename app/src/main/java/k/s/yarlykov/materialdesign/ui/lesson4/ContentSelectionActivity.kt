@@ -1,5 +1,6 @@
 package k.s.yarlykov.materialdesign.ui.lesson4
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
 import android.view.MenuItem
@@ -16,6 +17,7 @@ import k.s.yarlykov.materialdesign.ui.lesson6.*
 import k.s.yarlykov.materialdesign.ui.lesson6.fragments.FruitsFragment
 import k.s.yarlykov.materialdesign.ui.lesson6.fragments.NatureFragment
 import k.s.yarlykov.materialdesign.ui.lesson6.fragments.VegetablesFragment
+import k.s.yarlykov.materialdesign.ui.lesson7.TabbedActivity
 import kotlinx.android.parcel.Parcelize
 import kotlinx.android.synthetic.main.app_bar_content_selection.*
 import kotlinx.android.synthetic.main.content_selection.*
@@ -58,13 +60,27 @@ class ContentSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        val fragment = when (item.itemId) {
+
+        if(item.itemId == R.id.nav_nature) {
+            startActivity(Intent(this, TabbedActivity::class.java))
+        } else {
+            replaceFragment(item.itemId)
+        }
+
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout_l4)
+        drawerLayout.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+    private fun replaceFragment(menuItemId : Int) {
+
+        val fragment = when (menuItemId) {
             R.id.nav_vegetables -> {
                 VegetablesFragment.create(R.array.name_of_vegs, R.array.veg_pics)
             }
-            R.id.nav_nature -> {
-                NatureFragment.create(R.array.name_of_place, R.array.nature_pics)
-            }
+//            R.id.nav_nature -> {
+//                NatureFragment.create(R.array.name_of_place, R.array.nature_pics)
+//            }
             else -> {
                 FruitsFragment.create(R.array.name_of_fruits, R.array.fruit_pics)
             }
@@ -75,16 +91,5 @@ class ContentSelectionActivity : AppCompatActivity(), NavigationView.OnNavigatio
             .replace(R.id.content_frame, fragment)
             .addToBackStack(fragment.javaClass.simpleName)
             .commit()
-
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout_l4)
-        drawerLayout.closeDrawer(GravityCompat.START)
-        return true
-    }
-}
-
-@Parcelize
-data class LayoutType(val type: TYPE): Parcelable {
-    enum class TYPE {
-        LINEAR_SIMPLE, LINEAR_CARD, GRID_CARD, STAGGERED_GRID
     }
 }

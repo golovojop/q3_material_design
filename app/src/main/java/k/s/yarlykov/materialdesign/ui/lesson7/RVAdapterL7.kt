@@ -28,27 +28,31 @@ class RVAdapterL7(private val pics: List<Int>, private val itemResourceId: Int) 
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(pics[position], position)
+        holder.bind(pics[position])
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val ivMain = itemView.findViewById<ImageView>(R.id.iv_rv_item)
-        val ivHeart = itemView.findViewById<ImageView>(R.id.iv_heart)
-        val ivStar = itemView.findViewById<ImageView>(R.id.iv_star)
-        val tvHeart = itemView.findViewById<TextView>(R.id.tv_hearts)
-        val tvStar = itemView.findViewById<TextView>(R.id.tv_stars)
+        val ivMain = itemView.findViewById<ImageView>(R.id.iv_rv_item_l7)
+        val ivHeart = itemView.findViewById<ImageView>(R.id.iv_heart_l7)
+        val ivStar = itemView.findViewById<ImageView>(R.id.iv_star_l7)
+        val tvHeart = itemView.findViewById<TextView>(R.id.tv_hearts_l7)
+        val tvStar = itemView.findViewById<TextView>(R.id.tv_stars_l7)
 
-        fun bind(picId: Int, position: Int) {
+        fun bind(picId: Int) {
             ivMain.setImageResource(picId)
 
-            if (position < 3) {
+            var likes = getLike()
+            if(likes > 0) {
                 ivHeart.setImageResource(R.drawable.ic_heart_solid)
-                tvHeart.text = getLike()
+                tvHeart.text = likes.toString()
+            }
+            likes = getLike()
+            if(likes > 0) {
                 ivStar.setImageResource(R.drawable.ic_star)
-                tvStar.text = getLike()
+                tvStar.text = likes.toString()
             }
         }
     }
 
-    fun getLike() = Random.nextInt(10, 100).toString()
+    fun getLike() = Random.nextInt(0, 6)
 }

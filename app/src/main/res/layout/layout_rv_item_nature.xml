@@ -10,7 +10,7 @@
         card_view:cardCornerRadius="0dp">
 
     <ImageView
-            android:id="@+id/iv_rv_item"
+            android:id="@+id/iv_rv_item_l7"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
@@ -24,13 +24,13 @@
                   android:padding="8dp"
                   android:background="#66888888">
         <ImageView
-                android:id="@+id/iv_heart"
+                android:id="@+id/iv_heart_l7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/ic_heart"
                 android:scaleType="centerCrop"/>
         <TextView
-                android:id="@+id/tv_hearts"
+                android:id="@+id/tv_hearts_l7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/like_count"
@@ -44,14 +44,14 @@
               android:layout_weight="1"/>
 
         <ImageView
-                android:id="@+id/iv_star"
+                android:id="@+id/iv_star_l7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/ic_star_border"
                 android:layout_marginEnd="8dp"
                 android:scaleType="centerCrop"/>
         <TextView
-                android:id="@+id/tv_stars"
+                android:id="@+id/tv_stars_l7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/like_count"

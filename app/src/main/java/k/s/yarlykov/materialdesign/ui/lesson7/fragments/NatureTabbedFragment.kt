@@ -8,17 +8,16 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import k.s.yarlykov.materialdesign.*
-import k.s.yarlykov.materialdesign.ui.lesson6.fragments.NatureFragment
 import k.s.yarlykov.materialdesign.ui.lesson7.GridItemDecorationL7
 import k.s.yarlykov.materialdesign.ui.lesson7.RVAdapterL7
 import kotlinx.android.synthetic.main.fragment_place_holder.*
 
-class NatureContentFragment : Fragment() {
+class NatureTabbedFragment : Fragment() {
 
     companion object {
 
-        fun create(bundle: Bundle?): NatureFragment {
-            return NatureFragment().apply {
+        fun create(bundle: Bundle?): NatureTabbedFragment {
+            return NatureTabbedFragment().apply {
                 arguments = Bundle().apply {
                     putBundle(KEY_BUNDLE, bundle)
                 }
@@ -26,12 +25,12 @@ class NatureContentFragment : Fragment() {
         }
     }
 
-    var season = Place.MOUNTAIN
+    var place = Place.MOUNTAIN
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedtate: Bundle?) : View? {
 
         val layoutId = arguments?.getBundle(KEY_BUNDLE)!!.let { bundle ->
-            season = bundle.getSerializable(KEY_PLACE) as Place
+            place = bundle.getSerializable(KEY_PLACE) as Place
             bundle.getInt(KEY_LAYOUT_ID)
         }
 
@@ -40,11 +39,18 @@ class NatureContentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadData()
+
+        val pics = when(place) {
+            Place.MOUNTAIN -> R.array.mountains_pics
+            Place.VILLAGE -> R.array.village_pics
+            Place.RIVER -> R.array.rivers_pics
+        }
+
+        loadData(pics)
     }
 
-    private fun loadData() {
-        val stuffPics = with(resources.obtainTypedArray(R.array.mountains_pics)) {
+    private fun loadData(picsId : Int) {
+        val stuffPics = with(resources.obtainTypedArray(picsId)) {
 
             mutableListOf<Int>().also { li ->
                 (0 until length()).forEach { i ->
@@ -63,7 +69,7 @@ class NatureContentFragment : Fragment() {
             addItemDecoration(GridItemDecorationL7(2))
             itemAnimator = DefaultItemAnimator()
             layoutManager = GridLayoutManager(activity?.applicationContext, 2)
-            adapter = RVAdapterL7(data, R.layout.layout_rv_item)
+            adapter = RVAdapterL7(data, R.layout.layout_rv_item_nature)
         }
 
     }

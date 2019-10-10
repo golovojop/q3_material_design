@@ -4,17 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.fragment.app.Fragment
-import com.google.android.material.tabs.TabLayout
-import k.s.yarlykov.materialdesign.KEY_LAYOUT_ID
-import k.s.yarlykov.materialdesign.KEY_PLACE
-import k.s.yarlykov.materialdesign.Place
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import k.s.yarlykov.materialdesign.R
-import k.s.yarlykov.materialdesign.ui.lesson7.CustomFragmentPagerAdapter
-import k.s.yarlykov.materialdesign.ui.lesson7.fragments.NatureContentFragment
-import kotlinx.android.synthetic.main.app_bar_content_selection.*
-import kotlinx.android.synthetic.main.fragment_nature.*
+import k.s.yarlykov.materialdesign.ui.lesson6.RVAdapter
+import k.s.yarlykov.materialdesign.ui.lesson6.StaggeredItemDecoration
+import kotlinx.android.synthetic.main.content_selection.*
 
 class NatureFragment : Fragment() {
 
@@ -37,36 +33,35 @@ class NatureFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_nature, container, false)
+        return inflater.inflate(R.layout.content_selection, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initTabs()
+        initViews()
     }
 
-    private fun initTabs() {
-        val sectionsPagerAdapter = CustomFragmentPagerAdapter(activity!!.supportFragmentManager)
+    private fun initViews() {
+        val textId: Int = arguments!!.getInt(KEY_TEXT_ID)
+        val picsId: Int = arguments!!.getInt(KEY_PICS_ID)
 
-        sectionsPagerAdapter.addFragment(createFragment(Place.MOUNTAIN), getString(R.string.tab_text_1))
-        sectionsPagerAdapter.addFragment(createFragment(Place.RIVER), getString(R.string.tab_text_2))
-        sectionsPagerAdapter.addFragment(createFragment(Place.VILLAGE), getString(R.string.tab_text_3))
+        val stuffNames: Array<String> = resources.getStringArray(textId)
+        val stuffPics = with(resources.obtainTypedArray(picsId)) {
+            val li = mutableListOf<Int>()
+            (0 until length()).forEach { i ->
+                li.add(i, getResourceId(i, R.drawable.vegetables))
+            }
+            recycle()
+            li.toTypedArray()
+        }
 
-        view_pager.adapter = sectionsPagerAdapter
-        tabs.setupWithViewPager(view_pager)
-
-//        tabs.getTabAt(0)?.icon = getDrawable(R.drawable.ic_spring)
-//        tabs.getTabAt(1)?.icon = getDrawable(R.drawable.ic_beach)
-//        tabs.getTabAt(2)?.icon = getDrawable(R.drawable.ic_autumn)
-
-        tabs.tabGravity = TabLayout.GRAVITY_FILL
-    }
-
-    private fun createFragment(place : Place, layoutId : Int = R.layout.fragment_place_holder) : Fragment {
-        return with(Bundle()) {
-            putInt(KEY_LAYOUT_ID, layoutId)
-            putSerializable(KEY_PLACE, place)
-            NatureContentFragment.create(this)
+        recycle_view.apply {
+            setHasFixedSize(true)
+            addItemDecoration(StaggeredItemDecoration(2, 10))
+            itemAnimator = DefaultItemAnimator()
+            layoutManager = StaggeredGridLayoutManager(2,
+                StaggeredGridLayoutManager.VERTICAL)
+            adapter = RVAdapter(stuffPics.zip(stuffNames), R.layout.layout_rv_item_grid_straggered)
         }
     }
 }

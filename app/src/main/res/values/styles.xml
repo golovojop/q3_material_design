@@ -71,7 +71,6 @@
         <item name="colorAccent">@color/colorAccent_l4</item>
         <item name="colorSecondary">@color/colorSecondary_l4</item>
         <item name="colorOnSecondary">@color/colorOnSecondary_l4</item>
-
     </style>
     <style name="AppThemeL4.NoActionBar">
         <item name="windowActionBar">false</item>

@@ -60,6 +60,8 @@
     <string name="secondary_text">Secondary text</string>
 
 
+    <!-- Lesson7 -->
+    <string name="nature_activity_title">Nature collection</string>
     <string name="tab_text_1">Mountain</string>
     <string name="tab_text_2">River</string>
     <string name="tab_text_3">Village</string>
@@ -104,5 +106,6 @@
         There are songs about apples, songs about cherries, and songs about bananas represented below,
         as well as songs about peaches, oranges and even coconuts.
     </string>
+    <string name="title_activity_tabbed">Nature Views</string>
 
 </resources>
