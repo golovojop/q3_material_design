@@ -59,6 +59,13 @@
     <string name="fruit_08">Fruit</string>
     <string name="secondary_text">Secondary text</string>
 
+
+    <string name="tab_text_1">Mountain</string>
+    <string name="tab_text_2">River</string>
+    <string name="tab_text_3">Village</string>
+    <string name="like_count">0</string>
+    <string name="star_count">0</string>
+
     <string name="info_fruits">
         Fruit comes in many varieties, and so do songs about fruit.
         Here\'s our list of the best fruit songs, as voted on by music fans like you.

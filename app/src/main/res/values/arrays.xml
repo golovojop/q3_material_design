@@ -33,5 +33,31 @@
         <item>@drawable/n_08</item>
     </integer-array>
 
+    <integer-array name="mountains_pics">
+        <item>@drawable/m_01</item>
+        <item>@drawable/m_02</item>
+        <item>@drawable/m_03</item>
+        <item>@drawable/m_04</item>
+        <item>@drawable/m_05</item>
+        <item>@drawable/m_06</item>
+    </integer-array>
+    <integer-array name="rivers_pics">
+        <item>@drawable/r_01</item>
+        <item>@drawable/r_02</item>
+        <item>@drawable/r_03</item>
+        <item>@drawable/r_04</item>
+        <item>@drawable/r_05</item>
+        <item>@drawable/r_06</item>
+    </integer-array>
+
+
+    <integer-array name="village_pics">
+        <item>@drawable/vl_01</item>
+        <item>@drawable/vl_02</item>
+        <item>@drawable/vl_03</item>
+        <item>@drawable/vl_04</item>
+        <item>@drawable/vl_05</item>
+        <item>@drawable/vl_06</item>
+    </integer-array>
 
 </resources>

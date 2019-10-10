@@ -34,4 +34,8 @@
     <color name="colorAccent_l4">#8d6e63</color>
     <color name="colorSecondary_l4">#be9c91</color>
     <color name="colorOnSecondary_l4">#FFFFFF</color>
+
+    <!-- Lesson7 TabBar -->
+    <color name="tabIndicatorColor">@android:color/darker_gray</color>
+
 </resources>
