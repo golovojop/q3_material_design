@@ -12,7 +12,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:theme="@style/AppTheme.AppBarOverlay"
-            android:backgroundTint="?attr/colorPrimaryDark">
+            android:backgroundTint="?attr/colorPrimary">
 
         <TextView
                 android:id="@+id/title_l7"
@@ -29,7 +29,7 @@
                 style="@style/CustomTabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/colorPrimaryDark"/>
+                android:background="?attr/colorPrimary"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -46,6 +46,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/ic_dialog_email"/>
+            app:srcCompat="@drawable/ic_exit_white"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

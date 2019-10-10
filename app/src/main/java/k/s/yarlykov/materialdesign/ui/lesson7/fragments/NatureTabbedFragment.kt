@@ -71,6 +71,5 @@ class NatureTabbedFragment : Fragment() {
             layoutManager = GridLayoutManager(activity?.applicationContext, 2)
             adapter = RVAdapterL7(data, R.layout.layout_rv_item_nature)
         }
-
     }
 }

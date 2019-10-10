@@ -19,9 +19,8 @@ class TabbedActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tabbed)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        fab.setOnClickListener {
+            finish()
         }
 
         initTabs()
@@ -37,10 +36,9 @@ class TabbedActivity : AppCompatActivity() {
         view_pager.adapter = sectionsPagerAdapter
         tabs.setupWithViewPager(view_pager)
 
-//        tabs.getTabAt(0)?.icon = getDrawable(R.drawable.ic_spring)
-//        tabs.getTabAt(1)?.icon = getDrawable(R.drawable.ic_beach)
-//        tabs.getTabAt(2)?.icon = getDrawable(R.drawable.ic_autumn)
-//        tabs.getTabAt(3)?.icon = getDrawable(R.drawable.ic_ice)
+        tabs.getTabAt(0)?.icon = getDrawable(R.drawable.ic_mountain)
+        tabs.getTabAt(1)?.icon = getDrawable(R.drawable.ic_water)
+        tabs.getTabAt(2)?.icon = getDrawable(R.drawable.ic_village)
 
         tabs.tabGravity = TabLayout.GRAVITY_FILL
     }

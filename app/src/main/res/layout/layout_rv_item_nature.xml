@@ -27,7 +27,7 @@
                 android:id="@+id/iv_heart_l7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_heart"
+                app:srcCompat="@drawable/ic_favorite_border"
                 android:scaleType="centerCrop"/>
         <TextView
                 android:id="@+id/tv_hearts_l7"

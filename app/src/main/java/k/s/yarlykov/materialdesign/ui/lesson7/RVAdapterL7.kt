@@ -43,7 +43,7 @@ class RVAdapterL7(private val pics: List<Int>, private val itemResourceId: Int) 
 
             var likes = getLike()
             if(likes > 0) {
-                ivHeart.setImageResource(R.drawable.ic_heart_solid)
+                ivHeart.setImageResource(R.drawable.ic_favorite)
                 tvHeart.text = likes.toString()
             }
             likes = getLike()
