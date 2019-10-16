@@ -1,5 +1,6 @@
 package k.s.yarlykov.materialdesign.ui.lesson7
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -16,7 +17,13 @@ import kotlinx.android.synthetic.main.activity_tabbed.*
 
 class TabbedActivity : AppCompatActivity() {
 
+    private val PREFS_NAME = "tabbed_activity_prefs"
+    private val PREFS_KEY_THEME = "key_theme"
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        currentTheme = readTheme()
+        setTheme(currentTheme)
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tabbed)
         setSupportActionBar(toolbar_l8)
@@ -26,6 +33,25 @@ class TabbedActivity : AppCompatActivity() {
         }
 
         initTabs()
+    }
+
+    private fun readTheme(): Int {
+        return currentTheme
+//        return with(getSharedPreferences(PREFS_NAME, MODE_PRIVATE)) {
+//            if (contains(PREFS_KEY_THEME)) {
+//                getInt(PREFS_KEY_THEME, R.style.AppThemeL4)
+//            } else {
+//                R.style.AppThemeL4
+//            }
+//        }
+    }
+
+    private fun writeTheme(theme: Int) {
+        currentTheme = theme
+//        with(getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit()) {
+//            putInt(PREFS_KEY_THEME, theme)
+//            apply()
+//        }
     }
 
     private fun initTabs() {
@@ -45,7 +71,7 @@ class TabbedActivity : AppCompatActivity() {
         tabs.tabGravity = TabLayout.GRAVITY_FILL
     }
 
-    private fun createFragment(place : Place, layoutId : Int = R.layout.fragment_place_holder) : Fragment {
+    private fun createFragment(place: Place, layoutId: Int = R.layout.fragment_place_holder): Fragment {
         return with(Bundle()) {
             putInt(KEY_LAYOUT_ID, layoutId)
             putSerializable(KEY_PLACE, place)
@@ -61,12 +87,23 @@ class TabbedActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
-        when(item!!.itemId){
-            R.id.menu_theme_1 -> Log.e("TAG", "1")
-            R.id.menu_theme_2 -> Log.e("TAG", "1")
-            R.id.menu_theme_3 -> Log.e("TAG", "1")
+        when (item!!.itemId) {
+            R.id.menu_theme_1 -> {
+                writeTheme(R.style.AppThemeDob)
+                recreate()
+            }
+            R.id.menu_theme_2 -> {
+                writeTheme(R.style.AppThemeIc)
+                recreate()
+            }
+            R.id.menu_theme_3 -> {
+                writeTheme(R.style.AppThemePg)
+                recreate()
+            }
         }
-
-        return true
+        return super.onOptionsItemSelected(item)
     }
+
+    companion object {
+        private var currentTheme : Int = R.style.AppThemeL4    }
 }

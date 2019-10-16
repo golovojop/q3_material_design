@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
             android:id="@+id/menu_theme_1"
-            android:icon="@drawable/ic_theme_1"
+            android:icon="@drawable/ic_menu_brown"
             app:showAsAction="always"
             android:title="@string/menu_theme_dob"/>
     <item
             android:id="@+id/menu_theme_2"
-            android:icon="@drawable/ic_theme_1"
+            android:icon="@drawable/ic_menu_orange"
             app:showAsAction="always"
             android:title="@string/menu_theme_ic"/>
     <item
             android:id="@+id/menu_theme_3"
-            android:icon="@drawable/ic_theme_1"
+            android:icon="@drawable/ic_menu_pink"
             app:showAsAction="always"
             android:title="@string/menu_theme_pg"/>
 </menu>
