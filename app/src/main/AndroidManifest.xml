@@ -12,26 +12,26 @@
             android:theme="@style/AppTheme">
         <activity
                 android:name=".ui.lesson7.TabbedActivity"
-                android:label="@string/title_activity_tabbed"
+                android:label="@string/nature_activity_title"
                 android:theme="@style/AppThemeL4">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<action android:name="android.intent.action.VIEW"/>-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.VIEW"/>
 
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity
                 android:name=".ui.lesson4.ContentSelectionActivity"
                 android:label="@string/title_activity_content_selection"
                 android:parentActivityName=".ui.lesson2.AuthorizationActivity"
                 android:theme="@style/AppThemeL4">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
-                <!--<action android:name="android.intent.action.VIEW"/>-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.VIEW"/>
 
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
 
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"

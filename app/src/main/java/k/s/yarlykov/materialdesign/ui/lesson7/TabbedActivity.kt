@@ -1,8 +1,10 @@
 package k.s.yarlykov.materialdesign.ui.lesson7
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity;
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
 import k.s.yarlykov.materialdesign.KEY_LAYOUT_ID
@@ -10,7 +12,6 @@ import k.s.yarlykov.materialdesign.KEY_PLACE
 import k.s.yarlykov.materialdesign.Place
 import k.s.yarlykov.materialdesign.R
 import k.s.yarlykov.materialdesign.ui.lesson7.fragments.NatureTabbedFragment
-
 import kotlinx.android.synthetic.main.activity_tabbed.*
 
 class TabbedActivity : AppCompatActivity() {
@@ -18,6 +19,7 @@ class TabbedActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tabbed)
+        setSupportActionBar(toolbar_l8)
 
         fab.setOnClickListener {
             finish()
@@ -49,5 +51,22 @@ class TabbedActivity : AppCompatActivity() {
             putSerializable(KEY_PLACE, place)
             NatureTabbedFragment.create(this)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        Log.e("TAG", "onCreateOptionsMenu")
+        menuInflater.inflate(R.menu.color_balls, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
+        when(item!!.itemId){
+            R.id.menu_theme_1 -> Log.e("TAG", "1")
+            R.id.menu_theme_2 -> Log.e("TAG", "1")
+            R.id.menu_theme_3 -> Log.e("TAG", "1")
+        }
+
+        return true
     }
 }
