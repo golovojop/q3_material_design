@@ -1,25 +1,27 @@
 package k.s.yarlykov.materialdesign
 
 import android.os.Bundle
-import android.support.design.widget.NavigationView
-import android.support.design.widget.Snackbar
-import android.support.v4.content.ContextCompat
-import android.support.v4.view.GravityCompat
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
+import k.s.yarlykov.materialdesign.extentions.create
+import k.s.yarlykov.materialdesign.ui.BaseActivity
+import k.s.yarlykov.materialdesign.ui.pack1.CardLogoActivity
+import k.s.yarlykov.materialdesign.ui.pack2.BottomSheetActivity
+import k.s.yarlykov.materialdesign.ui.pack2.AuthorizationActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Установка темы
-        setTheme(lastTheme)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -56,41 +58,44 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main, menu)
+        menuInflater.inflate(R.menu.theme_menu, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+        when (item.itemId) {
+            R.id.nav_theme_dob -> {
+                updateTheme(R.style.AppThemeDob)
+                recreate()
+            }
+            R.id.nav_theme_ic -> {
+                updateTheme(R.style.AppThemeIc)
+                recreate()
+            }
+            R.id.nav_theme_pg -> {
+                updateTheme(R.style.AppThemePg)
+                recreate()
+            }
+            R.id.nav_theme_default -> {
+                updateTheme(R.style.AppTheme)
+                recreate()
+            }
         }
+
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_theme_dob -> {
-                lastTheme = R.style.AppThemeDob
-                recreate()
+            R.id.nav_start_l1 -> {
+                this.create(CardLogoActivity::class.java)
             }
-            R.id.nav_theme_ic -> {
-                lastTheme = R.style.AppThemeIc
-                recreate()
+            R.id.nav_start_l2_1 -> {
+                this.create(AuthorizationActivity::class.java)
             }
-            R.id.nav_theme_pg -> {
-                lastTheme = R.style.AppThemePg
-                recreate()
-            }
-            R.id.nav_theme_default -> {
-                lastTheme = R.style.AppTheme
-                recreate()
-            }
-            R.id.nav_launch -> {
-                LessonOneActivity.start(this)
+            R.id.nav_start_l2_2 -> {
+                this.create(BottomSheetActivity::class.java)
             }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
@@ -100,7 +105,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     // Настройка фона для элемента заголовка в nav_header_main
     private fun setNavHeaderBackground(header: View) {
-        val bgId = when (lastTheme) {
+        val bgId = when (currentTheme()) {
             R.style.AppThemeDob -> R.drawable.side_nav_bar_dob
             R.style.AppThemeIc -> R.drawable.side_nav_bar_ic
             R.style.AppThemePg -> R.drawable.side_nav_bar_pg
@@ -109,10 +114,4 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         header.background = ContextCompat.getDrawable(this, bgId)
     }
-
-    companion object {
-        private var lastTheme: Int = R.style.AppTheme
-    }
 }
-
-

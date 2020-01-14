@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="fruit_pics">
+        <item>@drawable/f_03</item>
+        <item>@drawable/f_02</item>
+        <item>@drawable/f_01</item>
+        <item>@drawable/f_04</item>
+        <item>@drawable/f_05</item>
+        <item>@drawable/f_06</item>
+        <item>@drawable/f_07</item>
+        <item>@drawable/f_08</item>
+    </integer-array>
+
+    <integer-array name="veg_pics">
+        <item>@drawable/v_01</item>
+        <item>@drawable/v_02</item>
+        <item>@drawable/v_03</item>
+        <item>@drawable/v_04</item>
+        <item>@drawable/v_05</item>
+        <item>@drawable/v_06</item>
+        <item>@drawable/v_07</item>
+        <item>@drawable/v_08</item>
+    </integer-array>
+
+    <integer-array name="nature_pics">
+        <item>@drawable/n_07</item>
+        <item>@drawable/n_01</item>
+        <item>@drawable/n_02</item>
+        <item>@drawable/n_03</item>
+        <item>@drawable/n_04</item>
+        <item>@drawable/n_05</item>
+        <item>@drawable/n_06</item>
+        <item>@drawable/n_08</item>
+    </integer-array>
+
+    <integer-array name="mountains_pics">
+        <item>@drawable/m_02</item>
+        <item>@drawable/m_03</item>
+        <item>@drawable/m_01</item>
+        <item>@drawable/m_04</item>
+        <item>@drawable/m_05</item>
+        <item>@drawable/m_06</item>
+    </integer-array>
+
+    <integer-array name="rivers_pics">
+        <item>@drawable/r_01</item>
+        <item>@drawable/r_02</item>
+        <item>@drawable/r_03</item>
+        <item>@drawable/r_04</item>
+        <item>@drawable/r_05</item>
+        <item>@drawable/r_06</item>
+    </integer-array>
+
+    <integer-array name="village_pics">
+        <item>@drawable/vl_04</item>
+        <item>@drawable/vl_02</item>
+        <item>@drawable/vl_03</item>
+        <item>@drawable/vl_01</item>
+        <item>@drawable/vl_05</item>
+        <item>@drawable/vl_06</item>
+    </integer-array>
+
+</resources>

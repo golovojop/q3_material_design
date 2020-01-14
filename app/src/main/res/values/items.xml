@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="name_of_fruits">
+        <item>Fruit</item>
+        <item>Fruit</item>
+        <item>Fruit</item>
+        <item>Fruit</item>
+        <item>Fruit</item>
+        <item>Fruit</item>
+        <item>Fruit</item>
+        <item>Fruit</item>
+    </string-array>
+    <string-array name="name_of_vegs">
+        <item>Vegetable</item>
+        <item>Vegetable</item>
+        <item>Vegetable</item>
+        <item>Vegetable</item>
+        <item>Vegetable</item>
+        <item>Vegetable</item>
+        <item>Vegetable</item>
+        <item>Vegetable</item>
+    </string-array>
+    <string-array name="name_of_place">
+        <item>Nature</item>
+        <item>Nature</item>
+        <item>Nature</item>
+        <item>Nature</item>
+        <item>Nature</item>
+        <item>Nature</item>
+        <item>Nature</item>
+        <item>Nature</item>
+    </string-array>
+
+</resources>

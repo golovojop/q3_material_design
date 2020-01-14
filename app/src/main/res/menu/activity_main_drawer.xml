@@ -5,30 +5,17 @@
 
     <group android:checkableBehavior="single">
         <item
-                android:id="@+id/nav_theme_dob"
-                android:icon="@drawable/ic_menu_palette"
-                android:title="@string/menu_theme_dob"/>
+                android:id="@+id/nav_start_l1"
+                android:icon="@drawable/ic_menu_launch"
+                android:title="@string/menu_start_activity_logo"/>
         <item
-                android:id="@+id/nav_theme_ic"
-                android:icon="@drawable/ic_menu_palette"
-                android:title="@string/menu_theme_ic"/>
+                android:id="@+id/nav_start_l2_1"
+                android:icon="@drawable/ic_menu_launch"
+                android:title="@string/menu_start_activity_auth"/>
         <item
-                android:id="@+id/nav_theme_pg"
-                android:icon="@drawable/ic_menu_palette"
-                android:title="@string/menu_theme_pg"/>
-        <item
-                android:id="@+id/nav_theme_default"
-                android:icon="@drawable/ic_menu_palette"
-                android:title="@string/menu_theme_default"/>
+                android:id="@+id/nav_start_l2_2"
+                android:icon="@drawable/ic_menu_launch"
+                android:title="@string/menu_start_activity_social"/>
     </group>
-
-    <item android:title="@string/menu_category_nav">
-        <menu>
-            <item
-                    android:id="@+id/nav_launch"
-                    android:icon="@drawable/ic_menu_launch"
-                    android:title="@string/menu_start_activity"/>
-        </menu>
-    </item>
 
 </menu>
