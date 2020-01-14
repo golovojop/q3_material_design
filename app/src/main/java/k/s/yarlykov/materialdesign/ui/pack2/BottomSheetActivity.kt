@@ -1,4 +1,4 @@
-package k.s.yarlykov.materialdesign.ui.lesson2
+package k.s.yarlykov.materialdesign.ui.pack2
 
 import android.os.Bundle
 import android.view.View

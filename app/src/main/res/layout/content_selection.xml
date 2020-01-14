@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
         tools:showIn="@layout/app_bar_content_selection"
-        tools:context=".ui.lesson4.ContentSelectionActivity">
+        tools:context=".ui.pack4.ContentSelectionActivity">
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycle_view"

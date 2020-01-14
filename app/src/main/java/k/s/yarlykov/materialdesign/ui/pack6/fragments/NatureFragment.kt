@@ -1,4 +1,4 @@
-package k.s.yarlykov.materialdesign.ui.lesson6.fragments
+package k.s.yarlykov.materialdesign.ui.pack6.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import k.s.yarlykov.materialdesign.R
-import k.s.yarlykov.materialdesign.ui.lesson6.RVAdapter
-import k.s.yarlykov.materialdesign.ui.lesson6.StaggeredItemDecoration
+import k.s.yarlykov.materialdesign.ui.pack6.RVAdapter
+import k.s.yarlykov.materialdesign.ui.pack6.StaggeredItemDecoration
 import kotlinx.android.synthetic.main.content_selection.*
 
 class NatureFragment : Fragment() {

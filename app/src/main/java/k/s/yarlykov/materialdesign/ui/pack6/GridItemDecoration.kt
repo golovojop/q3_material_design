@@ -1,4 +1,4 @@
-package k.s.yarlykov.materialdesign.ui.lesson6
+package k.s.yarlykov.materialdesign.ui.pack6
 
 import android.content.Context.WINDOW_SERVICE
 import android.graphics.Point

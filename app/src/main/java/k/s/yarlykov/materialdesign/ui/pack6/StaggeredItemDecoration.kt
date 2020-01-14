@@ -1,4 +1,4 @@
-package k.s.yarlykov.materialdesign.ui.lesson6
+package k.s.yarlykov.materialdesign.ui.pack6
 
 import android.graphics.Rect
 import android.view.View

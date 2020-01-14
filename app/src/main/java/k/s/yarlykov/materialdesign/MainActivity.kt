@@ -13,9 +13,9 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import k.s.yarlykov.materialdesign.extentions.create
 import k.s.yarlykov.materialdesign.ui.BaseActivity
-import k.s.yarlykov.materialdesign.ui.lesson1.LessonOneActivity
-import k.s.yarlykov.materialdesign.ui.lesson2.BottomSheetActivity
-import k.s.yarlykov.materialdesign.ui.lesson2.AuthorizationActivity
+import k.s.yarlykov.materialdesign.ui.pack1.CardLogoActivity
+import k.s.yarlykov.materialdesign.ui.pack2.BottomSheetActivity
+import k.s.yarlykov.materialdesign.ui.pack2.AuthorizationActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
@@ -89,7 +89,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_start_l1 -> {
-                this.create(LessonOneActivity::class.java)
+                this.create(CardLogoActivity::class.java)
             }
             R.id.nav_start_l2_1 -> {
                 this.create(AuthorizationActivity::class.java)

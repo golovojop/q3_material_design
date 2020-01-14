@@ -1,4 +1,4 @@
-package k.s.yarlykov.materialdesign.ui.lesson5
+package k.s.yarlykov.materialdesign.ui.pack5
 
 import android.content.Context
 import android.util.AttributeSet

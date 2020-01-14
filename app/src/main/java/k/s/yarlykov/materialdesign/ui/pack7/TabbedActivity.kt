@@ -1,6 +1,5 @@
-package k.s.yarlykov.materialdesign.ui.lesson7
+package k.s.yarlykov.materialdesign.ui.pack7
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -12,7 +11,7 @@ import k.s.yarlykov.materialdesign.KEY_LAYOUT_ID
 import k.s.yarlykov.materialdesign.KEY_PLACE
 import k.s.yarlykov.materialdesign.Place
 import k.s.yarlykov.materialdesign.R
-import k.s.yarlykov.materialdesign.ui.lesson7.fragments.NatureTabbedFragment
+import k.s.yarlykov.materialdesign.ui.pack7.fragments.NatureTabbedFragment
 import kotlinx.android.synthetic.main.activity_tabbed.*
 
 class TabbedActivity : AppCompatActivity() {

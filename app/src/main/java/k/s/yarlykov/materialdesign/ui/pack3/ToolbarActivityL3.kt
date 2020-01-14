@@ -1,4 +1,4 @@
-package k.s.yarlykov.materialdesign.ui.lesson3
+package k.s.yarlykov.materialdesign.ui.pack3
 
 import android.os.Bundle
 import android.view.MenuItem

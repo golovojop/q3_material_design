@@ -1,4 +1,4 @@
-package k.s.yarlykov.materialdesign.ui.lesson7.fragments
+package k.s.yarlykov.materialdesign.ui.pack7.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import k.s.yarlykov.materialdesign.*
-import k.s.yarlykov.materialdesign.ui.lesson7.GridItemDecorationL7
-import k.s.yarlykov.materialdesign.ui.lesson7.RVAdapterL7
+import k.s.yarlykov.materialdesign.ui.pack7.GridItemDecorationL7
+import k.s.yarlykov.materialdesign.ui.pack7.RVAdapterL7
 import kotlinx.android.synthetic.main.fragment_place_holder.*
 
 class NatureTabbedFragment : Fragment() {

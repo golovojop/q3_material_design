@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            app:layout_behavior="k.s.yarlykov.materialdesign.ui.lesson5.FabCustomBehavior"
+            app:layout_behavior="k.s.yarlykov.materialdesign.ui.pack5.FabCustomBehavior"
             android:layout_margin="@dimen/fab_margin"
             app:srcCompat="@drawable/ic_exit_white"/>
 

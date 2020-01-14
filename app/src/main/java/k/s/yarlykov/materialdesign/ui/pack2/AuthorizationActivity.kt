@@ -1,11 +1,11 @@
-package k.s.yarlykov.materialdesign.ui.lesson2
+package k.s.yarlykov.materialdesign.ui.pack2
 
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
-import k.s.yarlykov.materialdesign.ui.lesson4.ContentSelectionActivity
+import k.s.yarlykov.materialdesign.ui.pack4.ContentSelectionActivity
 import k.s.yarlykov.materialdesign.R
 import k.s.yarlykov.materialdesign.extentions.create
 import k.s.yarlykov.materialdesign.extentions.getColorFromAttr

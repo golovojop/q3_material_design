@@ -1,26 +1,19 @@
-package k.s.yarlykov.materialdesign.ui.lesson4
+package k.s.yarlykov.materialdesign.ui.pack4
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Parcelable
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.recyclerview.widget.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import k.s.yarlykov.materialdesign.R
-import k.s.yarlykov.materialdesign.ui.lesson6.*
-import k.s.yarlykov.materialdesign.ui.lesson6.fragments.FruitsFragment
-import k.s.yarlykov.materialdesign.ui.lesson6.fragments.NatureFragment
-import k.s.yarlykov.materialdesign.ui.lesson6.fragments.VegetablesFragment
-import k.s.yarlykov.materialdesign.ui.lesson7.TabbedActivity
-import kotlinx.android.parcel.Parcelize
+import k.s.yarlykov.materialdesign.ui.pack6.fragments.FruitsFragment
+import k.s.yarlykov.materialdesign.ui.pack6.fragments.VegetablesFragment
+import k.s.yarlykov.materialdesign.ui.pack7.TabbedActivity
 import kotlinx.android.synthetic.main.app_bar_content_selection.*
-import kotlinx.android.synthetic.main.content_selection.*
 
 class ContentSelectionActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 

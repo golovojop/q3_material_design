@@ -6,7 +6,7 @@
         android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.lesson7.TabbedActivity">
+        tools:context=".ui.pack7.TabbedActivity">
 
     <com.google.android.material.appbar.AppBarLayout
             android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
-            app:layout_behavior="k.s.yarlykov.materialdesign.ui.lesson5.FabCustomBehavior"
+            app:layout_behavior="k.s.yarlykov.materialdesign.ui.pack5.FabCustomBehavior"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
